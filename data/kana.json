@@ -1,0 +1,25 @@
+{
+  "id": "kana",
+  "page_character": 2,
+  "page_name": "kana_page_title",
+  "quote1": "kana_quote",
+  "quote2": "kana_quote_from",
+  "intro": "kana_intro",
+  "panel": "kana_panel.tscn",
+  "character": {
+    "kana_personality_1_main": "kana_personality_1",
+    "kana_personality_2_main": "kana_personality_2"
+  },
+  "profile": {
+    "kana_profile_1_main": "kana_profile_1",
+    "kana_profile_2_main": "kana_profile_2"
+  },
+  "playable": true,
+  "skill_desc": "kana_skill_desc",
+  "skills": {},
+  "boss": false,
+  "boss_desc": "",
+  "trivia": ["kana_trivia_1", "kana_trivia_2"],
+  "color": "#f5b400",
+  "name_color": false
+}
