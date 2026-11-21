@@ -1,13 +1,8 @@
-카나 위키 HTML 프로토타입 (CSV 연결 버전)
+심상 시커 4 - 다중 캐릭터 위키 프로토타입
 
-- index.html: 진입 페이지
-- style.css: 반응형 스타일
-- script.js: CSV 파서, 위키 렌더러, 내부 링크, 목차
-- data/kana.json: WikiText 리소스에서 옮긴 페이지 구조
-- data/kana.csv: 사용자가 제공한 한국어 번역 데이터
-
-실행: 폴더의 모든 파일을 GitHub Pages에 올리고 index.html에 접속하세요.
-로컬에서 실행하려면 Python 설치 시 이 폴더에서 python -m http.server 8000을 실행하고 http://localhost:8000 에 접속하세요.
-
-주의: 프로필 패널은 임시 표시입니다. protagonist/kohei 링크는 해당 JSON 페이지가 아직 없으므로 클릭 시 문서 없음이 나옵니다.
-원본 CSV의 빈 작중 행적 항목은 화면에 표시하지 않습니다.
+GitHub Pages에 이 폴더의 내용(index.html 포함)을 업로드하세요.
+페이지: ?page=kana, ?page=kohei, ?page=ryo, ?page=shuichi
+protagonist 링크는 ryo로 연결됩니다.
+현재 번역 CSV는 kana.csv 하나만 포함합니다. 다른 캐릭터의 번역 키는 원문 키로 표시됩니다.
+다른 캐릭터 CSV를 합치거나 번역 파일을 확장하면 실제 텍스트가 표시됩니다.
+패널은 임시 자리 표시자입니다.

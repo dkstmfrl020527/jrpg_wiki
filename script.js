@@ -1,5 +1,7 @@
 const app = document.getElementById('app');
 let translations = {};
+let pages = {};
+const aliases = { protagonist: 'ryo' };
 
 // CSV parser supporting quoted commas, newlines, and doubled quotes.
 function parseCSV(source) {
@@ -38,7 +40,9 @@ function textNode(value) {
     fragment.append(document.createTextNode(raw.slice(last, match.index)));
     const link = document.createElement('a');
     link.className = 'wiki-link';
-    link.href = `?page=${encodeURIComponent(match[2])}`;
+    const target = aliases[match[2]] || match[2];
+    link.href = `?page=${encodeURIComponent(target)}`;
+    if (!pages[target]) { link.classList.add('unavailable'); link.title = '아직 등록되지 않은 문서'; }
     link.textContent = match[1];
     fragment.append(link);
     last = re.lastIndex;
@@ -76,6 +80,16 @@ function tocLink(list, title, target, sub = false) {
 }
 function render(page) {
   app.replaceChildren();
+  const directory = el('nav', 'directory');
+  directory.append(el('strong', '', '캐릭터 문서'));
+  for (const [key, item] of Object.entries(pages)) {
+    const a = document.createElement('a');
+    a.href = `?page=${encodeURIComponent(key)}`;
+    a.textContent = tr(item.page_name);
+    if (key === currentId) a.setAttribute('aria-current', 'page');
+    directory.append(a);
+  }
+  app.append(directory);
   const title = el('h1', 'page-title', page.page_name);
   if (page.name_color) title.style.color = page.color;
   app.append(title);
@@ -104,18 +118,23 @@ function render(page) {
   for (const key of page.trivia || []) ul.append(el('li', '', key));
   trivia.append(ul);
 }
+let currentId = 'kana';
 async function main() {
-  const id = new URLSearchParams(location.search).get('page') || 'kana';
+  const requested = new URLSearchParams(location.search).get('page') || 'kana';
+  const id = aliases[requested] || requested;
+  currentId = id;
   if (!/^[a-z0-9_-]+$/i.test(id)) { app.textContent = '잘못된 문서 주소입니다.'; return; }
   try {
     const [csvResponse, pageResponse] = await Promise.all([
-      fetch('data/kana.csv'), fetch(`data/${id}.json`)
+      fetch('data/kana.csv'), fetch('data/wiki_pages.json')
     ]);
     if (!csvResponse.ok) throw new Error('번역 CSV를 불러오지 못했습니다.');
-    if (!pageResponse.ok) throw new Error(`문서를 찾을 수 없습니다: ${id}`);
+    if (!pageResponse.ok) throw new Error('위키 데이터를 불러오지 못했습니다.');
     const rows = parseCSV(await csvResponse.text());
     translations = Object.fromEntries(rows.slice(1).filter(r => r[0]).map(r => [r[0].trim(), r[1] ?? '']));
-    render(await pageResponse.json());
+    pages = await pageResponse.json();
+    if (!pages[id]) throw new Error(`문서를 찾을 수 없습니다: ${id}`);
+    render(pages[id]);
   } catch (error) { app.replaceChildren(el('p', 'error', error.message)); }
 }
 main();

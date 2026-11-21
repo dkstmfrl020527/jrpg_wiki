@@ -1,0 +1,114 @@
+{
+  "kana": {
+    "boss": false,
+    "boss_desc": "",
+    "character": {
+      "kana_personality_1_main": "kana_personality_1",
+      "kana_personality_2_main": "kana_personality_2"
+    },
+    "color": "#f5b400",
+    "intro": "kana_intro",
+    "name_color": false,
+    "page_character": 2,
+    "page_name": "kana_page_title",
+    "panel": "res://scene/main/wiki/prota/kana_panel.tscn",
+    "playable": true,
+    "profile": {
+      "kana_profile_1_main": "kana_profile_1",
+      "kana_profile_2_main": "kana_profile_2"
+    },
+    "quote1": "kana_quote",
+    "quote2": "kana_quote_from",
+    "skill_desc": "kana_skill_desc",
+    "skills": {
+
+    },
+    "trivia": [
+      "kana_trivia_1",
+      "kana_trivia_2"
+    ]
+  },
+  "kohei": {
+    "boss": false,
+    "boss_desc": "",
+    "character": {
+      "kohei_personality_1_main": "kohei_personality_1",
+      "kohei_personality_2_main": "kohei_personality_2"
+    },
+    "color": "#005cac",
+    "intro": "kohei_intro",
+    "name_color": true,
+    "page_character": 1,
+    "page_name": "kohei_page_title",
+    "panel": "res://scene/main/wiki/prota/kohei_panel.tscn",
+    "playable": true,
+    "profile": {
+      "kohei_profile_1_main": "kohei_profile_1"
+    },
+    "quote1": "kohei_quote",
+    "quote2": "kohei_quote_from",
+    "skill_desc": "kohei_skill_desc",
+    "skills": {
+
+    },
+    "trivia": [
+      "kohei_trivia_1"
+    ]
+  },
+  "ryo": {
+    "boss": false,
+    "boss_desc": "",
+    "character": {
+      "ryo_personality_1_main": "ryo_personality_1",
+      "ryo_personality_2_main": "ryo_personality_2"
+    },
+    "color": "#960000",
+    "intro": "ryo_intro",
+    "name_color": true,
+    "page_character": 0,
+    "page_name": "ryo_page_title",
+    "panel": "res://scene/main/wiki/prota/protagonist_panel.tscn",
+    "playable": true,
+    "profile": {
+      "ryo_profile_1_main": "ryo_profile_1"
+    },
+    "quote1": "ryo_quote",
+    "quote2": "ryo_quote_from",
+    "skill_desc": "ryo_skill_desc",
+    "skills": {
+
+    },
+    "trivia": [
+      "ryo_trivia_1",
+      "ryo_trivia_2",
+      "ryo_trivia_3"
+    ]
+  },
+  "shuichi": {
+    "boss": false,
+    "boss_desc": "",
+    "character": {
+      "shuichi_personality_1_main": "shuichi_personality_1",
+      "shuichi_personality_2_main": "shuichi_personality_2"
+    },
+    "color": "#418781",
+    "intro": "shuichi_intro",
+    "name_color": true,
+    "page_character": 3,
+    "page_name": "shuichi_page_title",
+    "panel": "res://scene/main/wiki/prota/shuichi_panel.tscn",
+    "playable": true,
+    "profile": {
+      "shuichi_profile_1_main": "shuichi_profile_1"
+    },
+    "quote1": "shuichi_quote",
+    "quote2": "shuichi_quote_from",
+    "skill_desc": "shuichi_skill_desc",
+    "skills": {
+
+    },
+    "trivia": [
+      "shuichi_trivia_1"
+    ]
+  }
+}
